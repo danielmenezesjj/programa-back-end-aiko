@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     longitude: DataTypes.DOUBLE
   }, {
     sequelize,
-    modelName: 'Para',
+    modelName: 'Parada',
   });
   return Para;
 };
