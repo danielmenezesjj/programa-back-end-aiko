@@ -15,6 +15,11 @@ module.exports = {
       longitude: {
         type: Sequelize.DOUBLE
       },
+      Veiculo_id :{
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: {model: 'Veiculos', key: 'id'}
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

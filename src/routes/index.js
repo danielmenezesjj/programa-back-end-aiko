@@ -6,8 +6,5 @@ const paradas = require('./paradaRoute')
 
 module.exports = (app)=>{
     app.use(bodyParser.json());
-    app.use(posicaoVeiculoRoute);
-    app.use(veiculos);
-    app.use(linhas);
     app.use(paradas)
 }
