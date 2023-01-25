@@ -10,4 +10,5 @@ router.post('/paradas', ParadaController.createParada)
 router.put('/paradas/:id', ParadaController.updateParada)
 router.delete('/paradas/:id', ParadaController.deleteParada)
 
+
 module.exports = router;

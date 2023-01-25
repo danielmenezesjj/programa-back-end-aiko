@@ -1,10 +1,14 @@
 const bodyParser = require("body-parser")
-const posicaoVeiculoRoute = require('./posicaoVeiculoRoute.js')
-const veiculos = require('./veiculoRoute')
-const linhas = require('./linhaRoute')
 const paradas = require('./paradaRoute')
+const linhas = require('./linhaRoute')
+const veiculos = require('./veiculoRoute')
+const posicaoVeiculos = require('./posicaoVeiculoRoute')
+
 
 module.exports = (app)=>{
     app.use(bodyParser.json());
-    app.use(paradas)
+    app.use(paradas);
+    app.use(linhas);
+    app.use(veiculos);
+    app.use(posicaoVeiculos)
 }

@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
 
 
     static associate(models) {
-      
+      Paradas.hasMany(models.Linhas, {
+        foreignKey: 'id'
+      })
     }
   }
   Paradas.init({
@@ -18,5 +20,5 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Parada',
   });
-  return Para;
+  return Paradas;
 };
