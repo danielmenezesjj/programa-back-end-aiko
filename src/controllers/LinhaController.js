@@ -50,16 +50,19 @@ class LinhaController{
                 return res.status(404).json(`A Linha de id: ${id} não foi encontrada`)
             }
     }
-      static async pegaLinhaP(req, res){
+
+    static async pegaLinhaP(req, res){
         const {id} = req.params
         try {
-         const linha = await database.Linhas.findOne({where: {id: Number(id)}})
-         const paradas = await linha.getTesteLinhas()
-         return res.status(200).json(paradas)
+         const OndePara = await database.Parada.findOne({where: {id: Number(id)}})
+         const LinhasqueVaoPassar = await OndePara.getLinhaPorParada()
+         return res.status(200).json(LinhasqueVaoPassar)
         } catch (error) {
         return res.status(404).json(error.message)
         }
      }
+
+
 
 }
 module.exports = LinhaController

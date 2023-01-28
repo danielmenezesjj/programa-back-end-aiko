@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
 
     static associate(models) {
       Paradas.hasMany(models.Linhas, {
-        foreignKey: 'id'
+        foreignKey: 'Parada_id',
+        as: 'LinhaPorParada'
       })
     }
   }

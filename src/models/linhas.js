@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
     
       Linhas.hasMany(models.Parada, {
         foreignKey: 'id',
-        // scope: {  },
         as: 'TesteLinhas'
       })
       Linhas.belongsTo(models.Parada, {

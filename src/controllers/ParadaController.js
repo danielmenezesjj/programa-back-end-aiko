@@ -51,7 +51,7 @@ class ParadaController {
         }
   } 
 
-  // Linhas por Parada: Recebe o identificador de uma parada e retorna as linhas associadas a parada informada
+
 
 
 
