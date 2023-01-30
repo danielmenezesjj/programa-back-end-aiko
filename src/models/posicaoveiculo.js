@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     longitude: DataTypes.DOUBLE
   }, {
     sequelize,
-    modelName: 'PosicaoVeiculo',
+    modelName: 'PosicaoVeiculos',
+    paranoid: true
   });
   return PosicaoVeiculo;
 };

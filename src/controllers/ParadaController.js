@@ -1,5 +1,6 @@
 const database = require("../models");
 
+
 class ParadaController {
 
   static async listParadaAll(req, res) {

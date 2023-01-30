@@ -5,7 +5,8 @@ const router = Router();
 
 router.get('/linhas', LinhaController.listLinhaAll)
 router.get('/linhas/:id', LinhaController.listaLinhasOne)
-router.get('/linhas/:id/paradas', LinhaController.pegaLinhaP)
+router.get('/linhas/:id/paradas', LinhaController.pegaLinhaPorParada)
+router.post('/linhas/:id/restaura', LinhaController.restoreLinhas)
 router.post('/linhas', LinhaController.createLinhas)
 router.put('/linhas/:id', LinhaController.updateLinhas)
 router.delete('/linhas/:id', LinhaController.deleteLinhas)
