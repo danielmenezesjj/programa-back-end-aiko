@@ -3,19 +3,19 @@ const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class PosicaoVeiculo extends Model {
+  class PosicaoVeiculos extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      PosicaoVeiculo.belongsTo(models.Veiculos, {
+      PosicaoVeiculos.belongsTo(models.Veiculos, {
         foreignKey: 'Veiculo_id'
       })
     }
   }
-  PosicaoVeiculo.init({
+  PosicaoVeiculos.init({
     latitude: DataTypes.DOUBLE,
     longitude: DataTypes.DOUBLE
   }, {
@@ -23,5 +23,5 @@ module.exports = (sequelize, DataTypes) => {
     modelName: 'PosicaoVeiculos',
     paranoid: true
   });
-  return PosicaoVeiculo;
+  return PosicaoVeiculos;
 };

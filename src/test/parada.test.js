@@ -1,10 +1,11 @@
 
+const { sequelize } = require('../models');
 const {ParadaServices} = require('../services')
 const ServicesParada = new ParadaServices()
 
 describe('Testando os Serviços de Paradas', ()=>{
     const objetoParada = {
-        name: "testeUnitario",
+        name: "testeIntegração",
         latitude: 30.00,
         longitude: 30.00
     }
@@ -12,7 +13,6 @@ describe('Testando os Serviços de Paradas', ()=>{
     it('Deve criar uma parada e verifica se realmente foi salva no BD', async ()=>{
         const createParada = await ServicesParada.criaRegistro(objetoParada)
         const retornado = await  ServicesParada.pegaUmRegistro(createParada.id);
-
         expect(retornado).toEqual(
             expect.objectContaining({
                 id: expect.any(Number),
@@ -22,8 +22,6 @@ describe('Testando os Serviços de Paradas', ()=>{
                 longitude: expect.any(Number)
             })
         )
+        sequelize.close()
     });
-
-
-
 })

@@ -23,10 +23,16 @@ class ParadaController {
   static async createParada(req, res){
     const newParada = req.body
     try {
+      if(Object.keys(newParada).length === 0){
+        throw new Error('corpo da requisicao vazio')
+      }
         const paradaNew = await database.Parada.create(newParada)
          return res.status(201).json(paradaNew)
 
     } catch (error) {
+        if(error.message === 'corpo da requisicao vazio'){
+          return res.status(400).json(error.message)
+        }
         return res.status(500).json(error.message)
     }
 
@@ -37,7 +43,7 @@ class ParadaController {
     try {
         await database.Parada.update(newInfos, {where: {id: Number(id)}})
         const paradaUpdate = await database.Parada.findOne({where: {id: Number(id)}})
-        return res.status(200).json(paradaUpdate)
+        return res.status(204).json(paradaUpdate)
     } catch (error) {
         return res.status(404).json(error.message)
     }

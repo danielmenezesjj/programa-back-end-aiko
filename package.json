@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./src/index.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --verbose"
   },
   "keywords": [],
   "author": "",
@@ -20,5 +20,8 @@
     "sequelize": "^6.28.0",
     "sequelize-cli": "^6.5.2",
     "tedious": "^15.1.2"
+  },
+  "devDependencies": {
+    "supertest": "6.2.4"
   }
 }
