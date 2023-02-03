@@ -11,7 +11,8 @@
     "password": "123456",
     "database": "aiko_digital_test",
     "host": "127.0.0.1",
-    "dialect": "mssql"
+    "dialect": "mssql",
+    "logging": false
   },
   "production": {
     "username": "root",

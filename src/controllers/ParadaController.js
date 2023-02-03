@@ -20,6 +20,7 @@ class ParadaController {
         return res.status(404).json(error.message)
     }
   }
+  
   static async createParada(req, res){
     const newParada = req.body
     try {
@@ -35,8 +36,8 @@ class ParadaController {
         }
         return res.status(500).json(error.message)
     }
-
   }
+
   static async updateParada(req, res){
     const {id} = req.params
     const newInfos = req.body

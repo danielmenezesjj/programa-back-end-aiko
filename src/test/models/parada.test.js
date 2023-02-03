@@ -1,11 +1,11 @@
 
-const { sequelize } = require('../models');
-const {ParadaServices} = require('../services')
+const { sequelize } = require('../../models');
+const {ParadaServices} = require('../../services')
 const ServicesParada = new ParadaServices()
 
 describe('Testando os Serviços de Paradas', ()=>{
     const objetoParada = {
-        name: "testeIntegração",
+        name: "testeUnitario",
         latitude: 30.00,
         longitude: 30.00
     }

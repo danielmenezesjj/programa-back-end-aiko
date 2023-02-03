@@ -25,9 +25,16 @@ class LinhaController{
     static async createLinhas(req, res){
         const newLinha = req.body
         try {
+            if(Object.keys(newLinha).length === 0){
+                throw new Error('corpo da requisicao vazio')
+            }
             const LinhasNew = await ServicesLinha.criaRegistro(newLinha)
             return res.status(201).json(LinhasNew)
+            
         } catch (error) {
+            if(error.message === 'corpo da requisicao vazio'){
+            return res.status(400).json(error.message)
+            }
             return res.status(500).json(error.message)
         }
     }
@@ -37,7 +44,7 @@ class LinhaController{
         const newInfos = req.body
         try {
             const LinhasNew = await ServicesLinha.atualizaRegistros(newInfos, Number(id))
-            return res.status(200).json(LinhasNew)
+            return res.status(204).json(LinhasNew)
         } catch (error) {
             return res.status(404).json(error.message)
         }
