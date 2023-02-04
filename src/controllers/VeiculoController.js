@@ -25,18 +25,25 @@ class VeiculoController{
     static async createVeiculos(req, res){
         const newVeiculos = req.body
         try {
+            if(Object.keys(newVeiculos).length === 0){
+                throw new Error('corpo da requisicao vazio')
+            }
             const VeiculosNew = await ServicesVeiculos.criaRegistro(newVeiculos)
             return res.status(201).json(VeiculosNew)
         } catch (error) {
+            if(error.message === 'corpo da requisicao vazio'){
+                return res.status(400).json(error.message)
+            }
             return res.status(500).json(error.message)
         }
     }
+    
     static async updateVeiculos(req, res){
         const {id} = req.params
         const newInfos = req.body
         try {
             await ServicesVeiculos.atualizaRegistros(newInfos, Number(id))
-            return res.status(200).json(`id ${id} atualizado com sucesso!`)
+            return res.status(204).json(`id ${id} atualizado com sucesso!`)
         } catch (error) {
             return res.status(404).json(error.message)
         }
