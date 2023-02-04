@@ -1,8 +1,8 @@
 const app = require('../../index')
 const request = require('supertest');
-const { sequelize } = require('../../models');
 
 
+let Parada_id;
 let idResposta;
 describe('POST em /linhas', ()=>{
     it('Deve registrar uma linha nova', async ()=>{
@@ -32,6 +32,7 @@ describe('GET em /linhas', () =>{
         .expect(200)
     expect(resposta.body[0].name).toEqual('testeLinha')
     idResposta = resposta.body[0].id
+    Parada_id = resposta.body[0].Parada_id
     });
 })
 
@@ -46,6 +47,16 @@ describe('GET em /linhas/id', ()=>{
     })
 })
 
+describe('GET em /linhas/Parada_id/paradas', ()=>{
+    it('Deve retornar linha por parada', async ()=>{
+        await request(app)
+        .get(`/linhas/${Parada_id}/paradas`)
+        .set('Accept', 'application/json')
+        .expect('content-type', /json/)
+        .expect(200)
+    })
+})
+
 describe('PUT em /linhas/id', ()=>{
     it.each([
         ['name', {name: 'testeLinhaAtualizado'}],
@@ -57,6 +68,7 @@ describe('PUT em /linhas/id', ()=>{
         .expect(204)
     })
 })
+
 let idDeletado;
 describe('DELETE em /linhas/id', ()=>{
     it('Deve criar linha pra ser deletada', async ()=>{

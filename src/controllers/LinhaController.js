@@ -52,10 +52,17 @@ class LinhaController{
     static async deleteLinhas(req, res){
         const {id} = req.params
         try {
+            const getLinhas = await ServicesLinha.pegaUmRegistro(Number(id))
+            if(getLinhas === null){
+                throw new Error('Id não localizado')
+            }
             const LinhasDelete = await ServicesLinha.apagaRegistros(Number(id))
             return res.status(200).json(`O id: ${id} foi deletado com sucesso!`)
         } catch (error) {
-            return res.status(404).json(error.message)
+            if(error.message === 'Id não localizado'){
+                return res.status(404).json(`O id: ${id} não foi localizado na nossa base`)
+            }
+            return res.status(500).json(error.message)
         } 
     }
 
