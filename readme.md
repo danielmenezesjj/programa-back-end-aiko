@@ -33,12 +33,3 @@ Após implementar o CRUD para as entidades, implemente os seguintes métodos:
 * Testes de Integração de todas as rotas
 
 * Estrutura MVC + Services
-
-
-## Rotas 
-
-* Linhas Routes
-```
-* ('/linhas') Lista todas as linhas
-
-```
