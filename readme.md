@@ -33,3 +33,18 @@ Após implementar o CRUD para as entidades, implemente os seguintes métodos:
 * Testes de Integração de todas as rotas
 
 * Estrutura MVC + Services
+
+
+## Pra rodar o Projeto
+
+* Estou utilizando SQL Server
+
+* Crie duas database, uma de desenvolvimento e outra de teste. `aiko_digital` e `aiko_digital_test`
+
+* Npm install
+
+* Npx sequelize-cli db:migrate
+
+* Npm start pra rodar a aplicação
+
+* Npm test pra rodar os testes 
