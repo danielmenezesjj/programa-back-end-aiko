@@ -37,7 +37,7 @@ class PosicaoVeiculoController{
             const verfSeExist = await ServicesPosicaoVeiculo.pegaUmRegistro(Number(id))
             if(verfSeExist != null){
               await ServicesPosicaoVeiculo.atualizaRegistros(newInfos, Number(id))
-              return res.status(200).json(`id: ${id} atualizado com sucesso`)
+              return res.status(204).json(`id: ${id} atualizado com sucesso`)
             }
             return res.status(404).json(`o id: ${id} não existe`)
       }
