@@ -10,7 +10,7 @@ describe('POST em /posicaoVeiculos', ()=>{
         .send({
             latitude: 15.000,
             longitude: 20.000,
-            Veiculo_id: 52
+            Veiculo_id: 100
         })
     })
 })
@@ -55,7 +55,7 @@ describe('DELETE em /posicaoVeiculo/id', ()=>{
     .send({
         latitude: 1000.000,
         longitude: 100.000,
-        Veiculo_id: 52
+        Veiculo_id: 100
     })
     .expect(201)
     idDelete = resposta.body.id
@@ -63,6 +63,15 @@ describe('DELETE em /posicaoVeiculo/id', ()=>{
     it('Deve deletar o registro que foi criado pra ser deletado', async ()=>{
         await request(app)
         .delete(`/posicaoVeiculos/${idDelete}`)
+        .expect(200)
+    })
+})
+
+
+describe('RESTAURA em /posicaoVeiculos/id', ()=>{
+    it('Deve restaurar uma Posicao de veiculo deletada', async ()=>{
+        await request(app)
+        .post(`/posicaoVeiculos/${idDelete}/restaura`)
         .expect(200)
     })
 })

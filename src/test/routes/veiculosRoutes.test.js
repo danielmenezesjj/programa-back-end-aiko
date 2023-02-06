@@ -9,7 +9,7 @@ describe('POST em /veiculos', ()=>{
         .send({
             name: 'VeiculoTest',
             modelo: 'modeloTest',
-            Linha_id: 24
+            Linha_id: 175
         })
         .expect(201)
     });
@@ -49,7 +49,7 @@ describe('PUT em /veiculos/id', ()=>{
     it.each([
         ['name', {name: 'VeiculoTest'}],
         ['modelo', {modelo: 'testeAtualizandoModelo'}],
-        ['Linha_id', {Linha_id: 25}]
+        ['Linha_id', {Linha_id: 175}]
     ])('Deve alterar o campo %s', async (chave, param)=>{
         await request(app)
         .put(`/veiculos/${idResposta}`)
@@ -67,7 +67,7 @@ describe('DELETE em /veiculos/id', ()=>{
         .send({
             name: 'VeiculoDelete',
             modelo: 'modeloDelete',
-            Linha_id: 24
+            Linha_id: 175
         });
         idDeletado = resposta.body.id
     });
@@ -86,3 +86,4 @@ describe('RESTAURA em /veiculos/id/restaura', ()=>{
         .expect(200)
     })
 })
+

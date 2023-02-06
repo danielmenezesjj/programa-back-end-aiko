@@ -34,7 +34,7 @@ describe('GET em /paradas', () =>{
         .set('Accept', 'application/json')
         .expect('content-type', /json/)
         .expect(200)
-    expect(resposta.body[0].name).toEqual('testeUnitario')
+    expect(resposta.body[0].name).toEqual('testeIntegração')
     idResposta = resposta.body[0].id
     });
 })

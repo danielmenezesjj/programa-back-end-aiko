@@ -10,7 +10,7 @@ describe('POST em /linhas', ()=>{
         .post('/linhas')
         .send({
             name: 'testeLinha',
-            Parada_id: 211
+            Parada_id: 441
         })
         .expect(201)
         idResposta = resposta.body.id
@@ -76,7 +76,7 @@ describe('DELETE em /linhas/id', ()=>{
         .post('/linhas')
         .send({
             name: 'linhaPraSerDeletada',
-            Parada_id: 211
+            Parada_id: 441
         })
         .expect(201)
         idDeletado = reposta.body.id
@@ -84,6 +84,14 @@ describe('DELETE em /linhas/id', ()=>{
     it('Deve deletar a linha que foi criada pra delete', async ()=>{
         await request(app)
         .delete(`/linhas/${idDeletado}`)
+        .expect(200)
+    })
+})
+
+describe('RESTAURA em /linhas/id', ()=>{
+    it('Deve restaurar uma linha deletada', async ()=>{
+        await request(app)
+        .post(`/linhas/${idDeletado}/restaura`)
         .expect(200)
     })
 })
