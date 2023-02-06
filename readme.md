@@ -34,6 +34,8 @@ Após implementar o CRUD para as entidades, implemente os seguintes métodos:
 
 * Estrutura MVC + Services
 
+* Metodo restaura um registro deletado
+
 
 ## Pra rodar o Projeto
 
